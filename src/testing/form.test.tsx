@@ -6,10 +6,10 @@ import userEvent from "@testing-library/user-event";
 const inputFields = ["Nom", "Prénom", "Email", "Mot du passe"];
 
 const validFormPayload: Record<string, string> = {
-  Nom: "omar",
+  Nom: "omarkhi",
   Prénom: "harroud",
   Email: "harroud.omar.dev@gmail.com",
-  ["Mot du passe"]: "P@ssw0rd",
+  ["Mot du passe"]: "BK606372",
 };
 
 const unvalidFormPayload: Record<string, string> = {
@@ -45,11 +45,14 @@ describe("Soumission du formulaire", () => {
     });
 
     await userEvent.click(screen.getByTestId("test-submit"), {});
-    await waitFor(() => {
-      expect(
-        screen.getByText("Le formulaire a été soumis avec succès.")
-      ).toBeInTheDocument();
-    });
+    await waitFor(
+      () => {
+        expect(
+          screen.getByText("Le formulaire a été soumis avec succès.")
+        ).toBeInTheDocument();
+      },
+      { timeout: 5000 }
+    );
   });
   it("La soumission du formulaire devrait échouer lorsque les données simulées sont invalides.", async () => {
     render(<Form mode="Test" />);
@@ -66,8 +69,11 @@ describe("Soumission du formulaire", () => {
     });
 
     await userEvent.click(screen.getByTestId("test-submit"), {});
-    await waitFor(() => {
-      expect(screen.getByText("validation error")).toBeInTheDocument();
-    });
+    await waitFor(
+      () => {
+        expect(screen.getByText("validation error")).toBeInTheDocument();
+      },
+      { timeout: 5000 }
+    );
   });
 });

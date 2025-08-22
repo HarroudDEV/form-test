@@ -110,6 +110,9 @@ export default function Form({ mode }: { mode?: "Test" }) {
       {mode === "Test" && errors.root?.message && (
         <div>Échec de la soumission du formulaire.</div>
       )}
+      {mode === "Test" && isSubmitSuccessful && (
+        <div>Le formulaire a été soumis avec succès.</div>
+      )}
     </Box>
   );
 }
