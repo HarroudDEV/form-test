@@ -16,7 +16,7 @@ const unvalidFormPayload: Record<string, string> = {
   Nom: "omar",
   Prénom: "harroud",
   Email: "harroud.omar.dev@gmail",
-  ["Mot du passe"]: "BK606372",
+  ["Mot du passe"]: "P@ssw0rd",
 };
 
 describe(Form.name, () => {
