@@ -107,6 +107,9 @@ export default function Form({ mode }: { mode?: "Test" }) {
           errors.lastName ||
           errors.password ||
           errors.email) && <div>validation error</div>}
+      {mode === "Test" && errors.root?.message && (
+        <div>Échec de la soumission du formulaire.</div>
+      )}
     </Box>
   );
 }

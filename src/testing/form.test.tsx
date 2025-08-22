@@ -19,7 +19,7 @@ const unvalidFormPayload: Record<string, string> = {
   ["Mot du passe"]: "P@ssw0rd",
 };
 
-describe(Form.name, () => {
+describe("Soumission du formulaire", () => {
   it("Cela devrait afficher le composant de formulaire avec tous les champs.", () => {
     render(<Form mode="Test" />);
     const form: HTMLFormElement = screen.getByTestId("form-test");
